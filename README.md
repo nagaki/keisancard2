@@ -2,7 +2,7 @@
 
 計算カードのような Next.js アプリケーションです。
 
-https://keisancard2-9e0s0hwxm.vercel.app
+https://keisancard2.vercel.app
 
 ## 機能
 
