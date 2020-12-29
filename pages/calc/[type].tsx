@@ -43,8 +43,14 @@ const Calc = () => {
    */
   const handleClickNumber = (key: string) => {
     if (isRemainder) {
+      if (remainder === "0") {
+        return;
+      }
       setRemainder(remainder + key);
     } else {
+      if (answer === "0") {
+        return;
+      }
       setAnswer(answer + key);
     }
   };
@@ -56,13 +62,15 @@ const Calc = () => {
    */
   const handleClickZero = (key: string) => {
     if (isRemainder) {
-      if (remainder !== "") {
-        setRemainder(remainder + key);
+      if (remainder === "0") {
+        return;
       }
+      setRemainder(remainder + key);
     } else {
-      if (answer !== "") {
-        setAnswer(answer + key);
+      if (answer === "0") {
+        return;
       }
+      setAnswer(answer + key);
     }
   };
 
@@ -101,7 +109,7 @@ const Calc = () => {
    * @param key
    */
   const handleClickEnter = (key: string) => {
-    if (mp.checkResult(answer, remainder)) {
+    if (mp.isResultCorrect(answer, remainder)) {
       setCalcState(CalcStateType.CORRECT);
     } else {
       setCalcState(CalcStateType.INCORRECT);

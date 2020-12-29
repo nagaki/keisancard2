@@ -43,9 +43,10 @@ class MathProblem {
     return this._expr;
   }
 
-  public checkResult(inputAnswer: string, inputRemainder: string): boolean {
-    if (inputRemainder !== "") {
-      if (Number(inputRemainder) !== this.remainder) {
+  public isResultCorrect(inputAnswer: string, inputRemainder: string): boolean {
+    if (typeof this.remainder !== "undefined") {
+      // わり算のとき、あまりチェック
+      if (!this.isReminderCorrect(inputRemainder)) {
         return false;
       }
     }
@@ -53,6 +54,16 @@ class MathProblem {
       return false;
     }
     return true;
+  }
+
+  private isReminderCorrect(inputRemainder: string) {
+    if (this.remainder === 0 && inputRemainder === "") {
+      return true;
+    }
+    if (Number(inputRemainder) === this.remainder) {
+      return true;
+    }
+    return false;
   }
 
   private genNumber(min: number, max: number): number {
