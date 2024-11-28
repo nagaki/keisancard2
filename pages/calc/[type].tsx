@@ -13,9 +13,9 @@ import { MathProblem } from "../../services/MathProblem";
 import classNames from "classnames";
 
 enum CalcStateType {
-	WAITING,
-	INCORRECT,
-	CORRECT,
+	WAITING = 0,
+	INCORRECT = 1,
+	CORRECT = 2,
 }
 
 const Calc = () => {

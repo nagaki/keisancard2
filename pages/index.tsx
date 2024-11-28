@@ -18,24 +18,24 @@ export default function Home() {
 			</Head>
 			<main className={styles.menu}>
 				<Link href="/calc/add">
-					<a className={styles.button}>
+					<button type="button" className={styles.button}>
 						<FontAwesomeIcon icon={faPlus} />
-					</a>
+					</button>
 				</Link>
 				<Link href="/calc/sub">
-					<a className={styles.button}>
+					<button type="button" className={styles.button}>
 						<FontAwesomeIcon icon={faMinus} />
-					</a>
+					</button>
 				</Link>
 				<Link href="/calc/mul">
-					<a className={styles.button}>
+					<button type="button" className={styles.button}>
 						<FontAwesomeIcon icon={faTimes} />
-					</a>
+					</button>
 				</Link>
 				<Link href="/calc/div">
-					<a className={styles.button}>
+					<button type="button" className={styles.button}>
 						<FontAwesomeIcon icon={faDivide} />
-					</a>
+					</button>
 				</Link>
 			</main>
 		</div>

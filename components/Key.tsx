@@ -21,13 +21,13 @@ export default function Key(props: IKeyProps) {
 
 	return (
 		<div className={classNames(styles.column)}>
-			<a
-				href="#"
+			<button
+			  type="button"
 				onClick={handleClick}
 				className={classNames(styles.button, styles[type], className)}
 			>
 				{text}
-			</a>
+			</button>
 		</div>
 	);
 }
