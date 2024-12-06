@@ -1,79 +1,79 @@
 .column {
-	grid-column-end: span 1;
-	text-align: center;
+  grid-column-end: span 1;
+  text-align: center;
 }
 
 .button {
-	background-color: #d88cbb;
-	border-radius: 25%;
-	box-shadow: 6px 6px 0 #c5639f;
-	border: 0;
-	color: #fff;
-	font-family: "Jua", cursive;
-	font-size: 4rem;
-	height: 80px;
-	line-height: 1.4;
-	width: 80px;
+  background-color: #d88cbb;
+  border-radius: 25%;
+  box-shadow: 6px 6px 0 #c5639f;
+  border: 0;
+  color: #fff;
+  font-family: "Jua", cursive;
+  font-size: 4rem;
+  height: 80px;
+  line-height: 1.4;
+  width: 80px;
 }
 
 .button:active {
-	color: #eee;
-	transform: translate(4px, 4px);
+  color: #eee;
+  transform: translate(4px, 4px);
 }
 
 .clear,
 .clear:hover {
-	background-color: rgb(84, 161, 116);
-	box-shadow: 6px 6px 0 #4b8d6c;
-	font-size: 3rem;
-	line-height: 1.75;
+  background-color: rgb(84, 161, 116);
+  box-shadow: 6px 6px 0 #4b8d6c;
+  font-size: 3rem;
+  line-height: 1.75;
 }
 
 .clear:active {
-	background-color: rgb(75, 145, 104);
-	box-shadow: 2px 2px 0 #417a5e;
+  background-color: rgb(75, 145, 104);
+  box-shadow: 2px 2px 0 #417a5e;
 }
 
 .enter,
 .enter:hover {
-	background-color: rgb(104, 161, 184);
-	box-shadow: 6px 6px 0 #5c869e;
+  background-color: rgb(104, 161, 184);
+  box-shadow: 6px 6px 0 #5c869e;
 }
 
 .enter:active {
-	background-color: rgb(94, 147, 168);
-	box-shadow: 2px 2px 0 #52778d;
+  background-color: rgb(94, 147, 168);
+  box-shadow: 2px 2px 0 #52778d;
 }
 
 .normal,
 .normal:hover {
-	background-color: #d88cbb;
-	box-shadow: 6px 6px 0 #c5639f;
+  background-color: #d88cbb;
+  box-shadow: 6px 6px 0 #c5639f;
 }
 
 .normal:active {
-	background-color: #c982ae;
-	box-shadow: 2px 2px 0 #b35a91;
+  background-color: #c982ae;
+  box-shadow: 2px 2px 0 #b35a91;
 }
 
 .remainder {
-	background-color: #bbb;
-	box-shadow: 6px 6px 0 #aaa;
-	line-height: 0.7;
+  background-color: #bbb;
+  box-shadow: 6px 6px 0 #aaa;
+  line-height: 0.7;
 }
 
 .remainder:active,
 .active {
-	background-color: #976aac;
-	box-shadow: 2px 2px 0 #865392;
+  background-color: #976aac;
+  box-shadow: 2px 2px 0 #865392;
 }
 
 .icon,
 .icon:hover {
-	font-size: 3rem;
-	line-height: 1.75;
+  font-size: 3rem;
+  line-height: 1.75;
 }
 
 .icon:active {
-	box-shadow: 2px 2px 0 #b35a91;
+  box-shadow: 2px 2px 0 #b35a91;
 }

@@ -1,92 +1,92 @@
 .container {
-	align-items: center;
-	background-color: #e9c3db;
-	display: flex;
-	flex-flow: column;
-	justify-content: center;
-	min-height: 100vh;
-	position: relative;
+  align-items: center;
+  background-color: #e9c3db;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
 }
 
 .box {
-	min-width: 260px;
+  min-width: 260px;
 }
 
 .keyboard {
-	display: grid;
-	grid-gap: 10px;
-	grid-template-columns: repeat(3, 1fr);
-	width: 260px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  width: 260px;
 }
 
 .loader {
-	color: white;
-	font-weight: bold;
-	font-size: xx-large;
-	text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: xx-large;
+  text-align: center;
 }
 
 .expr {
-	background-color: white;
-	box-shadow: 6px 6px 0 #d88cbb;
-	border-radius: 15px;
-	color: #d88cbb;
-	font-family: "Jua", cursive;
-	font-size: 2.5rem;
-	line-height: 1.25;
-	margin-bottom: 10px;
-	padding: 5px 15px 0;
+  background-color: white;
+  box-shadow: 6px 6px 0 #d88cbb;
+  border-radius: 15px;
+  color: #d88cbb;
+  font-family: "Jua", cursive;
+  font-size: 2.5rem;
+  line-height: 1.25;
+  margin-bottom: 10px;
+  padding: 5px 15px 0;
 }
 
 .count {
-	color: #d88cbb;
-	display: flex;
-	font-family: "Jua", cursive;
-	font-size: 1.5rem;
-	text-align: center;
+  color: #d88cbb;
+  display: flex;
+  font-family: "Jua", cursive;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .count .inner {
-	display: block;
-	margin: auto;
+  display: block;
+  margin: auto;
 }
 
 .plus,
 .minus,
 .times,
 .divide {
-	font-size: 2rem;
-	margin: 0 4px;
-	vertical-align: unset;
+  font-size: 2rem;
+  margin: 0 4px;
+  vertical-align: unset;
 }
 
 .active {
-	background-color: #976aac;
-	box-shadow: 2px 2px 0 #865392;
-	transform: translate(4px, 4px);
+  background-color: #976aac;
+  box-shadow: 2px 2px 0 #865392;
+  transform: translate(4px, 4px);
 }
 
 .overlay {
-	align-items: center;
-	bottom: 0;
-	display: flex;
-	justify-content: center;
-	left: 0;
-	position: absolute;
-	right: 0;
-	top: 0;
-	background-color: rgba(255, 255, 255, 0.7);
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .result {
-	font-size: 200px;
-	line-height: 1;
+  font-size: 200px;
+  line-height: 1;
 }
 
 .correct {
-	color: rgb(53, 176, 124);
+  color: rgb(53, 176, 124);
 }
 
 .incorrect {
-	color: rgb(223, 85, 85);
+  color: rgb(223, 85, 85);
 }
