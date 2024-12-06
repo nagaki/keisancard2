@@ -1,4 +1,3 @@
-import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,13 +8,9 @@ import {
 	faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Home() {
+export default function Page() {
 	return (
 		<div className={styles.container}>
-			<Head>
-				<title>Keisancard2</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
 			<main className={styles.menu}>
 				<Link href="/calc/add">
 					<button type="button" className={styles.button}>

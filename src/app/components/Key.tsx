@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import styles from "../styles/Keyboard.module.css";
+import styles from "../../styles/Keyboard.module.css";
 
 interface IKeyProps {
 	label?: string;
@@ -14,7 +14,7 @@ export default function Key(props: IKeyProps) {
 
 	const handleClick = (event: React.MouseEvent) => {
 		event.preventDefault();
-		props.onClick(label);
+		props.onClick(label || "");
 	};
 
 	const text = type === "icon" ? icon : label;
@@ -22,7 +22,7 @@ export default function Key(props: IKeyProps) {
 	return (
 		<div className={classNames(styles.column)}>
 			<button
-			  type="button"
+				type="button"
 				onClick={handleClick}
 				className={classNames(styles.button, styles[type], className)}
 			>

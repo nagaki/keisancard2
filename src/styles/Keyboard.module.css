@@ -7,16 +7,12 @@
 	background-color: #d88cbb;
 	border-radius: 25%;
 	box-shadow: 6px 6px 0 #c5639f;
+	border: 0;
 	color: #fff;
-	display: inline-block;
 	font-family: "Jua", cursive;
 	font-size: 4rem;
-	font-weight: 100;
 	height: 80px;
 	line-height: 1.4;
-	margin: 0;
-	vertical-align: center;
-	text-align: center;
 	width: 80px;
 }
 

@@ -19,6 +19,13 @@
 	width: 260px;
 }
 
+.loader {
+	color: white;
+	font-weight: bold;
+	font-size: xx-large;
+	text-align: center;
+}
+
 .expr {
 	background-color: white;
 	box-shadow: 6px 6px 0 #d88cbb;

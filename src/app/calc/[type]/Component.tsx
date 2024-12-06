@@ -1,6 +1,7 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import styles from "../../styles/Calc.module.css";
+"use client";
+
+import { useRouter } from "next/navigation";
+import styles from "../../../styles/Calc.module.css";
 import { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleLeft } from "@fortawesome/free-solid-svg-icons";
@@ -9,7 +10,7 @@ import {
 	faGrinSquint as farGrinSquint,
 } from "@fortawesome/free-regular-svg-icons";
 import Key from "../../components/Key";
-import { MathProblem } from "../../services/MathProblem";
+import { MathProblem } from "../../../services/MathProblem";
 import classNames from "classnames";
 
 enum CalcStateType {
@@ -18,9 +19,9 @@ enum CalcStateType {
 	CORRECT = 2,
 }
 
-const Calc = () => {
+export default function Component({ type }: { type: string }) {
 	const router = useRouter();
-	const { type } = router.query;
+	const [loading, setLoading] = useState<boolean>(true);
 	const [calcState, setCalcState] = useState<CalcStateType>(
 		CalcStateType.WAITING,
 	);
@@ -28,14 +29,7 @@ const Calc = () => {
 	const [remainder, setRemainder] = useState<string>("");
 	const [count, setCount] = useState<number>(1);
 	const [isRemainder, setIsRemainder] = useState<boolean>(false);
-	const [mp, setMp] = useState<MathProblem>(() => {
-		const initialState = new MathProblem(type);
-		return initialState;
-	});
-
-	useEffect(() => {
-		setMp(new MathProblem(type));
-	}, [type]);
+	const [mp, setMp] = useState<MathProblem | undefined>(new MathProblem(type));
 
 	/**
 	 * 1から9を押したとき
@@ -109,7 +103,7 @@ const Calc = () => {
 	 * @param key
 	 */
 	const handleClickEnter = (key: string) => {
-		if (mp.isResultCorrect(answer, remainder)) {
+		if (mp?.isResultCorrect(answer, remainder)) {
 			setCalcState(CalcStateType.CORRECT);
 		} else {
 			setCalcState(CalcStateType.INCORRECT);
@@ -133,78 +127,77 @@ const Calc = () => {
 		router.push("/");
 	};
 
+	useEffect(() => {
+		setLoading(false);
+	}, []);
+
 	return (
 		<div className={styles.container}>
-			<Head>
-				<title>Keisancard2</title>
-				<link rel="icon" href="/favicon.ico" />
-				<link rel="preconnect" href="https://fonts.gstatic.com" />
-				<link
-					href="https://fonts.googleapis.com/css2?family=Jua&display=swap"
-					rel="stylesheet"
-				/>
-			</Head>
-			<main className={styles.box}>
-				<div className={styles.expr}>
-					{mp.expr}
-					{answer}
-					{isRemainder ? "..." : ""}
-					{remainder}
-				</div>
-				<div className={styles.keyboard}>
-					<Key label="7" onClick={handleClickNumber} type="normal" />
-					<Key label="8" onClick={handleClickNumber} type="normal" />
-					<Key label="9" onClick={handleClickNumber} type="normal" />
-					<Key label="4" onClick={handleClickNumber} type="normal" />
-					<Key label="5" onClick={handleClickNumber} type="normal" />
-					<Key label="6" onClick={handleClickNumber} type="normal" />
-					<Key label="1" onClick={handleClickNumber} type="normal" />
-					<Key label="2" onClick={handleClickNumber} type="normal" />
-					<Key label="3" onClick={handleClickNumber} type="normal" />
-					<Key label="AC" onClick={handleClickClear} type="clear" />
-					<Key label="0" onClick={handleClickZero} type="normal" />
-					<Key label="=" onClick={handleClickEnter} type="enter" />
-					<Key
-						icon={<FontAwesomeIcon icon={faArrowAltCircleLeft} />}
-						onClick={handleReturn}
-						type="icon"
-					/>
-					<div className={styles.count}>
-						<span className={styles.inner}>#{count}</span>
+			{loading ? (
+				<main className={styles.box}>
+					<div className={styles.loader}>よみこみちゅう...</div>
+				</main>
+			) : (
+				<main className={styles.box}>
+					<div className={styles.expr}>
+						{mp?.expr}
+						{answer}
+						{isRemainder ? "..." : ""}
+						{remainder}
 					</div>
-					{type === "div" ? (
+					<div className={styles.keyboard}>
+						<Key label="7" onClick={handleClickNumber} type="normal" />
+						<Key label="8" onClick={handleClickNumber} type="normal" />
+						<Key label="9" onClick={handleClickNumber} type="normal" />
+						<Key label="4" onClick={handleClickNumber} type="normal" />
+						<Key label="5" onClick={handleClickNumber} type="normal" />
+						<Key label="6" onClick={handleClickNumber} type="normal" />
+						<Key label="1" onClick={handleClickNumber} type="normal" />
+						<Key label="2" onClick={handleClickNumber} type="normal" />
+						<Key label="3" onClick={handleClickNumber} type="normal" />
+						<Key label="AC" onClick={handleClickClear} type="clear" />
+						<Key label="0" onClick={handleClickZero} type="normal" />
+						<Key label="=" onClick={handleClickEnter} type="enter" />
 						<Key
-							label="..."
-							onClick={handleClickRemainder}
-							type="remainder"
-							className={classNames({ [styles.active]: isRemainder })}
+							icon={<FontAwesomeIcon icon={faArrowAltCircleLeft} />}
+							onClick={handleReturn}
+							type="icon"
 						/>
+						<div className={styles.count}>
+							<span className={styles.inner}>#{count}</span>
+						</div>
+						{type === "div" ? (
+							<Key
+								label="..."
+								onClick={handleClickRemainder}
+								type="remainder"
+								className={classNames({ [styles.active]: isRemainder })}
+							/>
+						) : (
+							false
+						)}
+					</div>
+					{calcState !== CalcStateType.WAITING ? (
+						<div className={styles.overlay}>
+							<div className={styles.result}>
+								{calcState === CalcStateType.CORRECT ? (
+									<FontAwesomeIcon
+										icon={farGrinSquint}
+										className={styles.correct}
+									/>
+								) : (
+									<FontAwesomeIcon
+										icon={farGrinBeamSweat}
+										className={styles.incorrect}
+									/>
+								)}
+							</div>
+						</div>
 					) : (
 						false
 					)}
-				</div>
-				{calcState !== CalcStateType.WAITING ? (
-					<div className={styles.overlay}>
-						<div className={styles.result}>
-							{calcState === CalcStateType.CORRECT ? (
-								<FontAwesomeIcon
-									icon={farGrinSquint}
-									className={styles.correct}
-								/>
-							) : (
-								<FontAwesomeIcon
-									icon={farGrinBeamSweat}
-									className={styles.incorrect}
-								/>
-							)}
-						</div>
-					</div>
-				) : (
-					false
-				)}
-			</main>
+				</main>
+			)}
 		</div>
 	);
-};
-
-export default Calc;
+}

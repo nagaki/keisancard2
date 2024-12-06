@@ -1,17 +1,15 @@
-import type { AppProps } from "next/app";
+"use client";
+
 import { useEffect } from "react";
-import "../styles/globals.css";
 
 const noEvent = (e: Event | TouchEvent) => {
 	e.preventDefault();
 };
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function PreventEvents() {
 	useEffect(() => {
 		window.addEventListener("touchmove", noEvent, { passive: false });
 		window.addEventListener("scroll", noEvent);
-	});
-	return <Component {...pageProps} />;
+	}, []);
+	return null;
 }
-
-export default MyApp;
