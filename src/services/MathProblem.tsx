@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styles from "../styles/Calc.module.css"
+import type { JSX } from "react"
 
 class MathProblem {
   private _answer: number
@@ -13,6 +14,9 @@ class MathProblem {
   private _remainder: number
 
   constructor(type: string | string[]) {
+    this._answer = 0
+    this._remainder = 0
+    this._expr = <p>a</p>
     switch (type) {
       case "add":
         this.genAdd()

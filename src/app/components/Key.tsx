@@ -1,5 +1,6 @@
 import classNames from "classnames"
 import styles from "../../styles/Keyboard.module.css"
+import type { JSX } from "react"
 
 interface IKeyProps {
   label?: string
