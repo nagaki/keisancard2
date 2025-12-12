@@ -9,20 +9,20 @@
     "format:fix": "biome check . --fix"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^6.7.1",
-    "@fortawesome/free-regular-svg-icons": "^6.7.1",
-    "@fortawesome/free-solid-svg-icons": "^6.7.1",
-    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.6",
     "@types/classnames": "^2.3.4",
     "classnames": "^2.5.1",
-    "next": "15.0.4",
+    "next": "15.0.7",
     "react": "19.0.0",
     "react-dom": "19.0.0"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@types/node": "^22.10.1",
-    "@types/react": "^19.0.0",
-    "typescript": "^5.7.2"
+    "@types/node": "^22.19.2",
+    "@types/react": "^19.2.7",
+    "typescript": "^5.9.3"
   }
 }
